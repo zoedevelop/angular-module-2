@@ -1,0 +1,44 @@
+(
+    function () {
+        'use strict';
+
+        let lista1 = ["guillermo", "rosario", "angie", "sebastian", "lucas", "camilo"];
+
+        let lista2 = [
+            {
+                name: "guillermo",
+                rol: "padre"
+            },{
+                name: "rosario",
+                rol: "madre"
+            },{
+                name: "angie",
+                rol: "hija"
+            },{
+                name: "sebastian",
+                rol: "hijo"
+            },{
+                name: "lucas",
+                rol: "hijo"
+            },{
+                name: "camilo",
+                rol: "nieto"
+            }
+        ]
+        angular.module('repeatAplication',[])
+            .controller('repeatController' , repeatController);
+        
+        repeatController.$inject = ($scope)
+        function repeatController ($scope){
+            $scope.lista1 = lista1;
+            $scope.lista2 = lista2; 
+            $scope.newlist = function(){
+                var newfamily = {
+                    name: $scope.newname,
+                    rol : $scope.newrol
+                };
+            $scope.lista2.push(newfamily) ;
+            }
+        };
+    }
+)()
